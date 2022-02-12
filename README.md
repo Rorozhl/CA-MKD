@@ -11,13 +11,13 @@ This repo was tested with Python 3.6, PyTorch 1.8.1, and CUDA 11.1.
 ## Running
 1. Train multiple teacher models
 ``` shell
-nohup python train_teacher.py --model resnet32x4 --gpu_id 0 --trial 0&
+python train_teacher.py --model resnet32x4 --gpu_id 0 --trial 0
 ```
 After the training is complete, be sure to put the teacher model directory in setting.py.
 
 2. Distill student model
 ``` shell
-nohup python train_student.py --model_s vgg8 --teacher_num 3 --distill inter --ensemble_method CAMKD --nesterov -r 1 -a 1 -b 50 --trial 0  --gpu_id 0&
+python train_student.py --model_s vgg8 --teacher_num 3 --distill inter --ensemble_method CAMKD --nesterov -r 1 -a 1 -b 50 --trial 0  --gpu_id 0
 ```
 where the flags are explained as:
 * `--distill`: specify the distillation method, e.g. `kd`, `hint`
